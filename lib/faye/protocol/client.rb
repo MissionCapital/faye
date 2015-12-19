@@ -363,6 +363,7 @@ module Faye
     def teardown_connection
       return unless @connect_request
       @connect_request = nil
+      trigger('transport:close')
       info('Closed connection for ?', @client_id)
     end
 
